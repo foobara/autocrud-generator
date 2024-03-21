@@ -14,7 +14,7 @@ module Foobara
           end
 
           def target_path
-            "Gemfile"
+            template_path
           end
 
           def generate(_elements_to_generate)

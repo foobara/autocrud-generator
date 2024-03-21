@@ -1,16 +1,16 @@
 require "pathname"
 
-require_relative "redis_crud_driver_config"
+require_relative "autocrud_config"
 
 module Foobara
   module Generators
-    module RedisCrudDriverGenerator
-      class GenerateRedisCrudDriver < Foobara::Generators::Generate
+    module AutocrudGenerator
+      class GenerateAutocrud < Foobara::Generators::Generate
         class MissingManifestError < RuntimeError; end
 
         possible_error MissingManifestError
 
-        inputs RedisCrudDriverConfig
+        inputs AutocrudConfig
 
         def execute
           include_non_templated_files
@@ -27,7 +27,7 @@ module Foobara
         attr_accessor :manifest_data
 
         def base_generator
-          Generators::RedisCrudDriverGenerator
+          Generators::AutocrudGenerator
         end
 
         # TODO: delegate this to base_generator
@@ -39,11 +39,11 @@ module Foobara
         end
 
         def add_initial_elements_to_generate
-          elements_to_generate << redis_crud_driver_config
+          elements_to_generate << autocrud_config
         end
 
-        def redis_crud_driver_config
-          @redis_crud_driver_config ||= RedisCrudDriverConfig.new(inputs)
+        def autocrud_config
+          @autocrud_config ||= AutocrudConfig.new(inputs)
         end
       end
     end

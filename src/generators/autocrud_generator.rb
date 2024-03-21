@@ -1,16 +1,14 @@
 module Foobara
   module Generators
-    module RedisCrudDriverGenerator
+    module AutocrudGenerator
       module Generators
-        class RedisCrudDriverGenerator < Foobara::FilesGenerator
+        class AutocrudGenerator < Foobara::FilesGenerator
           class << self
             def manifest_to_generator_classes(manifest)
               case manifest
-              when RedisCrudDriverConfig
+              when AutocrudConfig
                 [
-                  Generators::GemfileGenerator,
-                  Generators::EnvDevelopmentLocalGenerator,
-                  Generators::EnvTestLocalGenerator
+                  Generators::GemfileGenerator
                 ]
               else
                 # :nocov:
@@ -20,7 +18,7 @@ module Foobara
             end
           end
 
-          alias redis_crud_driver_config relevant_manifest
+          alias autocrud_config relevant_manifest
 
           def templates_dir
             # :nocov:

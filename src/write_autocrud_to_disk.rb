@@ -1,19 +1,19 @@
-require_relative "generate_redis_crud_driver"
+require_relative "generate_autocrud"
 
 module Foobara
   module Generators
-    module RedisCrudDriverGenerator
-      class WriteRedisCrudDriverToDisk < Foobara::Generators::WriteGeneratedFilesToDisk
+    module AutocrudGenerator
+      class WriteAutocrudToDisk < Foobara::Generators::WriteGeneratedFilesToDisk
         class << self
           def generator_key
-            "redis-crud-driver"
+            "autocrud"
           end
         end
 
-        depends_on GenerateRedisCrudDriver
+        depends_on GenerateAutocrud
 
         inputs do
-          redis_crud_driver_config RedisCrudDriverConfig, default: RedisCrudDriverConfig.new
+          autocrud_config AutocrudConfig, default: AutocrudConfig.new
           # TODO: should be able to delete this and inherit it
           output_directory :string
         end
@@ -35,9 +35,9 @@ module Foobara
         end
 
         def generate_file_contents
-          # TODO: just pass this in as the inputs instead of the redis_crud_driver??
-          self.paths_to_source_code = run_subcommand!(GenerateRedisCrudDriver,
-                                                      redis_crud_driver_config.attributes)
+          # TODO: just pass this in as the inputs instead of the autocrud??
+          self.paths_to_source_code = run_subcommand!(GenerateAutocrud,
+                                                      autocrud_config.attributes)
         end
 
         def run_post_generation_tasks

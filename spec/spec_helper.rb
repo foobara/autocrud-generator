@@ -35,4 +35,4 @@ RSpec.configure do |config|
 end
 
 require "foobara/spec_helpers/all"
-require "foobara/redis_crud_driver_generator"
+require "foobara/autocrud_generator"

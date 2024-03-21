@@ -2,8 +2,8 @@ require "English"
 
 module Foobara
   module Generators
-    module RedisCrudDriverGenerator
-      class RedisCrudDriverConfig < Foobara::Model
+    module AutocrudGenerator
+      class AutocrudConfig < Foobara::Model
         attributes({})
       end
     end

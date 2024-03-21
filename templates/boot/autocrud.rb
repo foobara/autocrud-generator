@@ -1,3 +1,3 @@
-require "foobara/redis_crud_driver"
+require "foobara/autocrud"
 
-Foobara::Persistence.default_crud_driver = Foobara::RedisCrudDriver.new
+Foobara::Persistence.default_crud_driver = Foobara::Autocrud.new

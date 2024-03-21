@@ -1,4 +1,4 @@
-RSpec.describe Foobara::Generators::RedisCrudDriverGenerator::GenerateRedisCrudDriver do
+RSpec.describe Foobara::Generators::AutocrudGenerator::GenerateAutocrud do
   let(:inputs) do
     {}
   end
@@ -6,9 +6,9 @@ RSpec.describe Foobara::Generators::RedisCrudDriverGenerator::GenerateRedisCrudD
   let(:outcome) { command.run }
   let(:result) { outcome.result }
 
-  it "generates a redis_crud_driver" do
+  it "generates a autocrud" do
     expect(outcome).to be_success
 
-    expect(result.keys).to include("boot/redis.rb")
+    expect(result.keys).to include("boot/autocrud.rb")
   end
 end

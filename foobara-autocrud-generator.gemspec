@@ -18,8 +18,13 @@ Gem::Specification.new do |spec|
   spec.files = Dir[
     "lib/**/*",
     "src/**/*",
-    "LICENSE.txt"
+    "LICENSE*.txt",
+    "README.md",
+    "CHANGELOG.md"
   ]
+
+  spec.add_dependency "foobara"
+  spec.add_dependency "foobara-files-generator"
 
   spec.require_paths = ["lib"]
   spec.metadata["rubygems_mfa_required"] = "true"

@@ -43,7 +43,7 @@ RSpec.describe Foobara::Generators::AutocrudGenerator::WriteAutocrudToDisk do
 
       expect(
         command.paths_to_source_code["Gemfile"]
-      ).to include('gem "foobara-autocrud", github: "foobara/autocrud"')
+      ).to include('gem "foobara-autocrud"')
     end
   end
 

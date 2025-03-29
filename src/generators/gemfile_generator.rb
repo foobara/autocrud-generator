@@ -21,8 +21,8 @@ module Foobara
             match = gemfile_contents.match(/^gem /)
 
             if match
-              # TODO: put this in gemspec instead?
-              new_entry = 'gem "foobara-autocrud", github: "foobara/autocrud"'
+              # TODO: put this in gemspec instead!
+              new_entry = 'gem "foobara-autocrud"'
               "#{match.pre_match}\n#{new_entry}\n#{match}#{match.post_match}"
             else
               # TODO: maybe print a warning and return the original Gemfile
